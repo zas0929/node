@@ -1,7 +1,9 @@
-console.log("Hello World");
+var server = require("./server");
+var config = require("./config");
 
-var arr = [1,2,3,4,5];
+console.log(config.get("port"));
 
-for (var i = 0; i < arr.length; i++) {
-	console.log(arr[i]);
-}
+server(config);
+
+console.log("app is running!");
+
