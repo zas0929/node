@@ -1,17 +1,24 @@
-function router(app) {
-	//get запрос
+function router(app, express) {
+	//переопределяем %
+	var ejs = require('ejs');
+	ejs.delimiter = "?";
+	//подключаем ejs к express
+ 	app.set('view engine', 'ejs');
 
+ 	//подключаем статику
+ 	app.use(express.static(__dirname + "/../public"));
+
+	//get запрос
 	app.get('/', function(req, res) {
-		console.log("request /");
 		//main тип пересылаемых данных
-		res.type('text/plain');
+		// res.type('text/html');
 		//позволяет пересылать текстовые данные
-		res.send('main page');
+		// res.send('main page');
+		//подключаем шаблон index (в путь views и ejs не писать)
+		res.render('template', {page:"main", title: "Главная"});
 	});
-	app.get('/game', function(req, res) {
-		console.log("game");
-		res.type('text/plain');
-		res.send('game page');
+	app.get('/about', function(req, res) {
+		res.render('template', {page:"about", title: "О нас"});
 	});
 
 	app.use(function(req, res){

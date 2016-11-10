@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?=title?></title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+	<p>
+		<?if (page=="main") {?>
+			<?include pages/index ?>
+			<?include partials/slider ?>
+		<?}?>
+
+		<?if (page=="about") {?>
+			<?include pages/about ?>
+			<?include partials/sidebar ?>
+		<?}?>
+	</p>
+</body>
+</html>

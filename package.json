@@ -4,6 +4,7 @@
   "description": "node_learn_project",
   "main": "app.js",
   "dependencies": {
+    "ejs": "^2.5.2",
     "express": "^4.14.0",
     "nconf": "^0.8.4",
     "socket.io": "^1.5.1"
