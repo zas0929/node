@@ -1,0 +1,12 @@
+/* Webfont: BrandonGrotesque-Bold */@font-face {
+    font-family: 'BrandonGrotesqueNews';
+    src: url('BrandonGrotesque-Bold.eot'); /* IE9 Compat Modes */
+    src: url('BrandonGrotesque-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('BrandonGrotesque-Bold.woff') format('woff'), /* Modern Browsers */
+         url('BrandonGrotesque-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('BrandonGrotesque-Bold.svg#BrandonGrotesque-Bold') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+

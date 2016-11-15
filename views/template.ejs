@@ -2,19 +2,96 @@
 <html>
 <head>
 	<title><?=title?></title>
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/ion.rangeSlider.css">
+	<link rel="stylesheet" href="/css/ion.rangeSlider.skinFlat.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
 </head>
 <body>
-	<p>
+	<header>
+        <div class="container">
+            <div class="logo">
+                <a href="/"><img src="img/logo.png" alt="logo"><span>PokerTime</span></a>
+            </div>
+            <div class="info">
+                <table>
+                    <tr>
+                        <td>Players:</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>Online:</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Rooms:</td>
+                        <td>1</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="sign">
+                <a href="#" class="sign-in">Sign In</a>
+                <a href="#" class="sign-up">Sign Up</a>
+				<div class="register reg">
+	                <h2>Register account</h2>
+	                <form action="">
+	                    <input type="text" name="email" placeholder="Email">
+	                    <input type="password" name="password" placeholder="Password">
+	                    <input type="submit" name="submit" value="Register">
+	                </form>
+	            </div>
+	            <div class="register log-in">
+	                <h2>Log In account</h2>
+	                <form action="">
+	                    <input type="text" name="email" placeholder="Email">
+	                    <input type="password" name="password" placeholder="Password">
+	                    <input type="submit" name="submit" value="Log In">
+	                </form>
+	            </div>
+            </div>
+        </div>
+		<nav>
+	        <ul>
+	            <li><a href="/">Home</a></li>
+	            <li><a href="/game">Game</a></li>
+	            <li><a href="/rooms">Rooms</a></li>
+	            <li><a href="/profile">Profile</a></li>
+	        </ul>
+	    </nav>
+    </header>
 		<?if (page=="main") {?>
 			<?include pages/index ?>
-			<?include partials/slider ?>
+		<?}?>
+		<?if (page=="profile") {?>
+			<?include pages/profile ?>
+		<?}?>
+		<?if (page=="rooms") {?>
+			<?include pages/rooms ?>
+		<?}?>
+		<?if (page=="game") {?>
+			<?include pages/game ?>
+		<?}?>
+		<?if (page=="404") {?>
+			<?include pages/404 ?>
+		<?}?>
+		<?if (page=="500") {?>
+			<?include pages/500 ?>
 		<?}?>
 
-		<?if (page=="about") {?>
-			<?include pages/about ?>
-			<?include partials/sidebar ?>
-		<?}?>
-	</p>
+
+
+	<footer>
+        <div class="container">
+            <div class="logo-footer">
+                <a href="#"><img src="img/logo.png" alt="logo"><span>PokerTime</span></a>
+            </div>
+        </div>
+    </footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="js/ion.rangeSlider.js"></script>
+	<script src="js/TweenMax.min.js"></script>
+	<script src="js/script.js"></script>
 </body>
 </html>

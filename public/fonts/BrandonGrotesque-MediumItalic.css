@@ -1,0 +1,12 @@
+/* Webfont: BrandonGrotesque-MediumItalic */@font-face {
+    font-family: 'BrandonGrotesque';
+    src: url('BrandonGrotesque-MediumItalic.eot'); /* IE9 Compat Modes */
+    src: url('BrandonGrotesque-MediumItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('BrandonGrotesque-MediumItalic.woff') format('woff'), /* Modern Browsers */
+         url('BrandonGrotesque-MediumItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('BrandonGrotesque-MediumItalic.svg#BrandonGrotesque-MediumItalic') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+

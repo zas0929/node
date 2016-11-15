@@ -15,23 +15,28 @@ function router(app, express) {
 		//позволяет пересылать текстовые данные
 		// res.send('main page');
 		//подключаем шаблон index (в путь views и ejs не писать)
-		res.render('template', {page:"main", title: "Главная"});
+		res.render('template', {page:"main", title: "Home", partial: "start-game"});
 	});
-	app.get('/about', function(req, res) {
-		res.render('template', {page:"about", title: "О нас"});
+	app.get('/profile', function(req, res) {
+		res.render('template', {page:"profile", title: "Profile"});
+	});
+	app.get('/rooms', function(req, res) {
+		res.render('template', {page:"rooms", title: "Rooms", partial: "start-game"});
+	});
+	app.get('/game', function(req, res) {
+		res.render('template', {page:"game", title: "Game"});
 	});
 
 	app.use(function(req, res){
-		res.type("text/plain");
 		res.status(404);
-		res.send("<h1>404 - not found</h1>")
+		res.render('template', {page:"404", title: "404 error"});
 	})
 
 	app.use(function(err, req, res, next) {
-		res.type('text/plain');
+
 		res.status(500);
-		res.send('500 - Server error');
+		res.render('template', {page:"500", title: "500 error"});
 	})
 
-} 
+}
 module.exports = router;
