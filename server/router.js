@@ -17,14 +17,17 @@ function router(app, express) {
 		//подключаем шаблон index (в путь views и ejs не писать)
 		res.render('template', {page:"main", title: "Home", partial: "start-game"});
 	});
+	app.get('/index', function(req, res) {
+		res.render("pages/index");
+	});
 	app.get('/profile', function(req, res) {
-		res.render('template', {page:"profile", title: "Profile"});
+		res.render("pages/profile");
 	});
 	app.get('/rooms', function(req, res) {
-		res.render('template', {page:"rooms", title: "Rooms", partial: "start-game"});
+		res.render("pages/rooms");
 	});
 	app.get('/game', function(req, res) {
-		res.render('template', {page:"game", title: "Game"});
+		res.render("pages/game");
 	});
 
 	app.use(function(req, res){
@@ -33,7 +36,7 @@ function router(app, express) {
 	})
 
 	app.use(function(err, req, res, next) {
-
+		console.log(err);
 		res.status(500);
 		res.render('template', {page:"500", title: "500 error"});
 	})

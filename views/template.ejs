@@ -54,13 +54,16 @@
         </div>
 		<nav>
 	        <ul>
-	            <li><a href="/">Home</a></li>
+	            <li><a href="/index">Home</a></li>
 	            <li><a href="/game">Game</a></li>
 	            <li><a href="/rooms">Rooms</a></li>
 	            <li><a href="/profile">Profile</a></li>
 	        </ul>
 	    </nav>
     </header>
+    	<?if (page=="index") {?>
+			<?include pages/index ?>
+		<?}?>
 		<?if (page=="main") {?>
 			<?include pages/index ?>
 		<?}?>

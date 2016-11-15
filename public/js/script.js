@@ -1,4 +1,48 @@
 $(document).ready(function() {
+    //ajax
+    $("nav").find("a").click(function(event) {
+        event.preventDefault();
+    })
+    $("nav").find('[href="/index"]').click(function() {
+        $.ajax({
+            url: "/index",
+            async: true
+        }).done(function(data) {
+            alert(data);
+            $(".main-block").html(data);
+        })    
+    })
+    $("nav").find('[href="/game"]').click(function() {
+        $.ajax({
+            url: "/game",
+            async: true
+        }).done(function(data) {
+            $(".main-block").html(data);
+        })    
+    })
+     $("nav").find('[href="/rooms"]').click(function() {
+        $.ajax({
+            url: "/rooms",
+            async: true
+        }).done(function(data) {
+            $(".main-block").html(data);
+        })    
+    })
+    $("nav").find('[href="/profile"]').click(function() {
+        $.ajax({
+            url: "/profile",
+            async: true
+        }).done(function(data) {
+            $(".main-block").html(data);
+        })    
+    })
+    
+
+
+
+
+
+
     var body = $('body'),
         signUp = body.find('.container').find('.sign-up'),
         signIn = body.find('.container').find('.sign-in'),
@@ -55,7 +99,7 @@ $(document).ready(function() {
         playerTRCard1 = $('.player-top-right').find('.cards').find('img')[0],
         playerTRCard2 = $('.player-top-right').find('.cards').find('img')[1],
         playerBRCard1 = $('.player-bottom-right').find('.cards').find('img')[0],
-        playerBRCard2 = $('.player-bottom-right').find('.cards').find('img')[1]
+        playerBRCard2 = $('.player-bottom-right').find('.cards').find('img')[1],
         playerBLCard1 = $('.player-bottom-left').find('.cards').find('img')[0],
         playerBLCard2 = $('.player-bottom-left').find('.cards').find('img')[1],
         playerTLChips = $('.player-top-left').find('.chips-player'),
