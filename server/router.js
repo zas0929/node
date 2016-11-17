@@ -15,7 +15,7 @@ function router(app, express) {
 		//позволяет пересылать текстовые данные
 		// res.send('main page');
 		//подключаем шаблон index (в путь views и ejs не писать)
-		res.render('template', {page:"main", title: "Home", partial: "start-game"});
+		res.render('template', {page:"game", title: "Home", partial: "start-game"});
 	});
 	app.get('/index', function(req, res) {
 		res.render("pages/index");

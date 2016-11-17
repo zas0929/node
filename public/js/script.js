@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     //ajax
     $("nav").find("a").click(function(event) {
@@ -8,17 +9,18 @@ $(document).ready(function() {
             url: "/index",
             async: true
         }).done(function(data) {
-            alert(data);
             $(".main-block").html(data);
-        })    
+        })
     })
     $("nav").find('[href="/game"]').click(function() {
+        $.getScript('js/script.js');
         $.ajax({
             url: "/game",
             async: true
         }).done(function(data) {
             $(".main-block").html(data);
-        })    
+        })
+
     })
      $("nav").find('[href="/rooms"]').click(function() {
         $.ajax({
@@ -26,7 +28,7 @@ $(document).ready(function() {
             async: true
         }).done(function(data) {
             $(".main-block").html(data);
-        })    
+        })
     })
     $("nav").find('[href="/profile"]').click(function() {
         $.ajax({
@@ -34,9 +36,9 @@ $(document).ready(function() {
             async: true
         }).done(function(data) {
             $(".main-block").html(data);
-        })    
+        })
     })
-    
+
 
 
 
@@ -109,9 +111,44 @@ $(document).ready(function() {
         bank = $('.container').find('.table-block').find('.bank-info'),
         dealer = $('.container').find('.table-block').find('.dealer');
 
+    var card1, card2, card1X, card1Y, delayCard, rotationCard, easeCard, durationCard;
+    function Player() {
+        this.card1 = this.card1;
+        this.card2 = this.card2;
+        this.card1X = this.card1X;
+        this.card1Y = this.card1Y;
+        this.card2X = this.card2X;
+        this.card2Y = this.card2Y;
+        this.delayCard2 = this.delayCard2;
+        this.delay = this.delay;
+        this.rotation = this.rotation;
+        this.ease = this.ease;
+        this.duration = this.durationCard;
+    }
+    Player.prototype.giveCardsTest = function(gamer) {
+        TweenMax.from(this.card1, this.duration, {x: this.card1X, y: this.card1Y, delay: this.delay, rotation: this.rotation, ease: this.ease} )
+        TweenMax.from(this.card2, this.duration, {x: this.card2X, y: this.card2Y, delay: this.delayCard2, rotation: this.rotation, ease: this.ease} )
+
+    }
+
+    var player1 = new Player();
+        player1.card1 = playerTLCard1;
+        player1.card2 = playerTLCard2;
+        player1.card1X = 220;
+        player1.card1Y = -20;
+        player1.card2X = 179;
+        player1.card2Y = -20;
+        player1.delay = 0.5;
+        player1.delayCard2 = 1;
+        player1.rotation = -360;
+        player1.duration = 0.5;
+        player1.ease = Power1.easeOut;
+        player1.delay = 2; 
+
+
     function giveCards() {
-        TweenMax.from(playerTLCard1, 0.5, {x:220, y:-20, delay: 0.5, rotation: -360, ease: Power1.easeOut});
-        TweenMax.from(playerTLCard2, 0.5, {x:179, y:-20, delay: 1, rotation: -360, ease: Power1.easeOut});
+        // TweenMax.from(playerTLCard1, 0.5, {x:220, y:-20, delay: 0.5, rotation: -360, ease: Power1.easeOut});
+        // TweenMax.from(playerTLCard2, 0.5, {x:179, y:-20, delay: 1, rotation: -360, ease: Power1.easeOut});
 
         TweenMax.from(playerTRCard2, 0.5, {x:-220, y:-20, delay: 1.5, rotation: 360, ease: Power1.easeOut});
         TweenMax.from(playerTRCard1, 0.5, {x:-180, y:-20, delay: 2, rotation: 360, ease: Power1.easeOut});
@@ -196,7 +233,8 @@ $(document).ready(function() {
     //Temporary
     $('.give-cards').on('click', function(event) {
         event.preventDefault();
-        giveCards();
+        // giveCards();
+        player1.giveCardsTest();
     })
     $('.move-dealer-rt').on('click', function(event) {
         event.preventDefault();
