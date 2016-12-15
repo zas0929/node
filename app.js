@@ -6,4 +6,3 @@ console.log(config.get("port"));
 server(config);
 
 console.log("app is running!");
-

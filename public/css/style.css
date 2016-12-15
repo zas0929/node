@@ -578,3 +578,6 @@ footer img {
     color: #fff;
     text-decoration: none;
 }
+.well p {
+    color: #000;
+}
