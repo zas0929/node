@@ -32,11 +32,16 @@
                 </table>
             </div>
             <div class="sign">
+            	<?if(auth){?>
+	                 <a href="/logout" >Logout</a>
+                <?}else{?>
                 <a href="#" class="sign-in">Sign In</a>
-                <a href="#" class="sign-up">Sign Up</a>
+	                <a href="#" class="sign-up">Sign Up</a>
+                	
+               	<?}?>
 				<div class="register reg">
 	                <h2>Register account</h2>
-	                <form action="">
+	                <form method="POST" action="/signup">
 	                    <input type="text" name="email" placeholder="Email">
 	                    <input type="password" name="password" placeholder="Password">
 	                    <input type="submit" name="submit" value="Register">
@@ -44,7 +49,7 @@
 	            </div>
 	            <div class="register log-in">
 	                <h2>Log In account</h2>
-	                <form action="">
+	                <form method="POST" action="/signin">
 	                    <input type="text" name="email" placeholder="Email">
 	                    <input type="password" name="password" placeholder="Password">
 	                    <input type="submit" name="submit" value="Log In">
@@ -68,7 +73,7 @@
 			<?include pages/index ?>
 		<?}?>
 		<?if (page=="profile") {?>
-			<?include pages/profile ?>
+			<?include pages/profile-my ?>
 		<?}?>
 		<?if (page=="rooms") {?>
 			<?include pages/rooms ?>

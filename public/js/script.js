@@ -1,43 +1,60 @@
 
 $(document).ready(function() {
-    //ajax
-    $("nav").find("a").click(function(event) {
+    
+    $("#changeProfile").submit(function(event){
         event.preventDefault();
+       
+        
+       $.post( "/profile", {
+            email    : $(this).find("[name=email]").val(),
+            password : $(this).find("[name=password]").val(),
+            nick     : $(this).find("[name=nick]").val(),
+            phone    : $(this).find("[name=phone]").val(),
+            fname    : $(this).find("[name=fname]").val(),
+            lname    : $(this).find("[name=lname]").val(),
+       } );
     })
-    $("nav").find('[href="/index"]').click(function() {
-        $.ajax({
-            url: "/index",
-            async: true
-        }).done(function(data) {
-            $(".main-block").html(data);
-        })
-    })
-    $("nav").find('[href="/game"]').click(function() {
-        $.getScript('js/script.js');
-        $.ajax({
-            url: "/game",
-            async: true
-        }).done(function(data) {
-            $(".main-block").html(data);
-        })
 
-    })
-     $("nav").find('[href="/rooms"]').click(function() {
-        $.ajax({
-            url: "/rooms",
-            async: true
-        }).done(function(data) {
-            $(".main-block").html(data);
-        })
-    })
-    $("nav").find('[href="/profile"]').click(function() {
-        $.ajax({
-            url: "/profile",
-            async: true
-        }).done(function(data) {
-            $(".main-block").html(data);
-        })
-    })
+
+
+    //ajax
+    // $("nav").find("a").click(function(event) {
+    //     event.preventDefault();
+    // })
+    // $("nav").find('[href="/index"]').click(function() {
+    //     $.ajax({
+    //         url: "/index",
+    //         async: true
+    //     }).done(function(data) {
+    //         $(".main-block").html(data);
+    //     })
+    // })
+    // $("nav").find('[href="/game"]').click(function() {
+    //     $.getScript('js/script.js');
+    //     $.ajax({
+    //         url: "/game",
+    //         async: true
+    //     }).done(function(data) {
+    //         $(".main-block").html(data);
+    //     })
+
+    // })
+    //  $("nav").find('[href="/rooms"]').click(function() {
+    //     $.ajax({
+    //         url: "/rooms",
+    //         async: true
+    //     }).done(function(data) {
+    //         $(".main-block").html(data);
+    //     })
+    // })
+    // $("nav").find('[href="/profile"]').click(function() {
+    //     $.ajax({
+    //         url: "/profile",
+    //         async: true
+    //     }).done(function(data) {
+    //         $(".main-block").html(data);
+    //     })
+    // })
 
 
 
