@@ -12,7 +12,13 @@ $(document).ready(function() {
             phone    : $(this).find("[name=phone]").val(),
             fname    : $(this).find("[name=fname]").val(),
             lname    : $(this).find("[name=lname]").val(),
-       } );
+       } ).done(function(data){
+            if (data == "ok") {
+                alert("profile changed");
+            }else{
+                alert("Server error");
+            }
+       });
     })
 
 

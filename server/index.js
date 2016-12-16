@@ -3,6 +3,8 @@ var config = require("./../config");
 var express = require("express");
 
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 var router = require("./router.js");
 
@@ -46,9 +48,9 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 function server(config) {
 
 		// console.log('I am '+serverName+' !');
-	router(app, express, passport);
+	router(app, express, passport, io);
 
-	app.listen(config.get("port"), function() {
+	http.listen(config.get("port"), function() {
 		console.log("I am ready on port " +config.get("port"));
 	})
 }
