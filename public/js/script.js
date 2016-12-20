@@ -64,10 +64,6 @@ $(document).ready(function() {
 
 
 
-
-
-
-
     var body = $('body'),
         signUp = body.find('.container').find('.sign-up'),
         signIn = body.find('.container').find('.sign-in'),
@@ -175,8 +171,8 @@ $(document).ready(function() {
         player2.card1Y = -20;
         player2.card2X = -220;
         player2.card2Y = -20;
-        player2.delay = 1.5;
-        player2.delayCard2 = 2;
+        player2.delay = 2;
+        player2.delayCard2 = 1.5;
         player2.rotation = 360;
         player2.duration = 0.5;
         player2.ease = Power1.easeOut;
@@ -194,20 +190,19 @@ $(document).ready(function() {
         player3.duration = 0.5;
         player3.ease = Power1.easeOut;
 
-    function giveCards() {
-        // TweenMax.from(playerTLCard1, 0.5, {x:220, y:-20, delay: 0.5, rotation: -360, ease: Power1.easeOut});
-        // TweenMax.from(playerTLCard2, 0.5, {x:179, y:-20, delay: 1, rotation: -360, ease: Power1.easeOut});
+    var player4 = new Player();
+        player4.card1 = playerBLCard1;
+        player4.card2 = playerBLCard2;
+        player4.card1X = 219;
+        player4.card1Y = -284;
+        player4.card2X = 179;
+        player4.card2Y = -284;
+        player4.delay = 3.5;
+        player4.delayCard2 = 4;
+        player4.rotation = -360;
+        player4.duration = 0.5;
+        player4.ease = Power1.easeOut;
 
-        // TweenMax.from(playerTRCard2, 0.5, {x:-220, y:-20, delay: 1.5, rotation: 360, ease: Power1.easeOut});
-        // TweenMax.from(playerTRCard1, 0.5, {x:-180, y:-20, delay: 2, rotation: 360, ease: Power1.easeOut});
-
-        TweenMax.from(playerBRCard2, 0.5, {x:-219, y:-284, delay: 2.5, rotation: 360, ease: Power1.easeOut});
-        TweenMax.from(playerBRCard1, 0.5, {x:-179, y:-284, delay: 3, rotation: 360, ease: Power1.easeOut});
-
-        TweenMax.from(playerBLCard1, 0.5, {x:219, y:-284, delay: 3.5, rotation: -360, ease: Power1.easeOut});
-        TweenMax.from(playerBLCard2, 0.5, {x:179, y:-284, delay: 4, rotation: -360, ease: Power1.easeOut});
-
-    }
     //button animations
     function moveDealerRT() {
         TweenMax.to(dealer, 0.5, {css:{right:100, top: 75, left: 530}, ease: Power1.easeOut, onComplete: addClassRT});
@@ -285,6 +280,7 @@ $(document).ready(function() {
         player1.giveCardsTest();
         player2.giveCardsTest();
         player3.giveCardsTest();
+        player4.giveCardsTest();
     })
     $('.move-dealer-rt').on('click', function(event) {
         event.preventDefault();
