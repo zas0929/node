@@ -9,8 +9,6 @@ $(document).ready(function() {
     $('#m').on('keypress', function() {
         socket.emit('user typing', 'typing');
     });
-
-
     socket.on('user typing', function(typing) {
         $('.chat').find('span').text(typing);
         setTimeout(function() {
@@ -26,5 +24,5 @@ $(document).ready(function() {
     })
     socket.on('user out', function(user) {
         $('#messages').append($('<li>').text(user + " disconnected"));
-    })
+    });
 })

@@ -13,7 +13,24 @@ function router(app, express, passport, io) {
     };
 
     var userModel = require("./../models/user.js");
+    // var gameModel = require("./../models/game.js");
 
+    // var testGame = new gameModel({
+    //     cards: ['AA', 'KK'],
+    //     cardsOnTable: ['2', '5', 'J'],
+    //     bank: 220,
+    //     minCash: 5,
+    //     player1: {
+    //         id1: '',
+    //         cards: ['AA', 'QQ'],
+    //         smBl: true,
+    //         bigBl: false,
+    //         step: false,
+    //         button: false
+    //     },
+    // })
+    // testGame.save();
+    // console.log(testGame);
     app.get('/', function(req, res) {
 
         dataToPage.page = "main";
