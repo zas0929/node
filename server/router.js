@@ -87,7 +87,8 @@ function router(app, express, passport, io) {
         dataToPage.page = "game";
         dataToPage.title = "game";
         dataToPage.auth = req.isAuthenticated();
-
+        var userId = req.user._id;
+        console.log(userId);
         res.render('template', dataToPage);
     });
 
