@@ -13,26 +13,63 @@ function router(app, express, passport, io) {
     };
 
     var userModel = require("./../models/user.js");
-    // var gameModel = require("./../models/game.js");
+    var gameModel = require("./../models/game.js");
 
-    // var testGame = new gameModel({
-    //     cards: ['AA', 'KK'],
-    //     cardsOnTable: ['2', '5', 'J'],
-    //     bank: 220,
-    //     minCash: 5,
-    //     player1: {
-    //         id1: '',
-    //         cards: ['AA', 'QQ'],
-    //         smBl: true,
-    //         bigBl: false,
-    //         step: false,
-    //         button: false
-    //     },
-    // })
-    // testGame.save();
-    // console.log(testGame);
+
+    //heart - чирва
+    // diamond - бубна
+    // club - крест
+    // spade - пика
+    var cardStack = [
+                     '2h', '3h', '4h', '5h', '6h', '7h', '8h', '9h', '10h', 'Jh', 'Qh', 'Kh', 'Ah',
+                     '2d', '3d', '4d', '5d', '6d', '7d', '8d', '9d', '10d', 'Jd', 'Qd', 'Kd', 'Ad',
+                     '2c', '3c', '4c', '5c', '6c', '7c', '8c', '9c', '10c', 'Jc', 'Qc', 'Kc', 'Ac',
+                     '2s', '3s', '4s', '5s', '6s', '7s', '8s', '9s', '10s', 'Js', 'Qs', 'Ks', 'As'
+    ]
+    function randomInt(min, max) {
+        var rand = min + Math.random() * (max + 1 - min);
+        rand = Math.floor(rand);
+        return rand;
+    }
+
+    function randomCard() {
+        randCard = cardStack.splice(randomInt(0, 51), 1);
+        return randCard[0];
+        return cardStack;
+    }
+
+    var testGame = new gameModel({
+        cards: cardStack,
+        cardsOnTable: [randomCard(), randomCard(), randomCard()],
+        cardsOnTern: [],
+        bank: 220,
+        minCash: 5,
+        player1: {
+            id1: '',
+            cards: [randomCard(), randomCard()],
+            smBl: true,
+            bigBl: false,
+            step: false,
+            button: false
+        },
+        player2: {
+            id1: '',
+            cards: [randomCard(), randomCard()],
+            smBl: true,
+            bigBl: false,
+            step: false,
+            button: false
+        }
+    });
+
+    testGame.save();
+    console.log(testGame);
+    testGame.cardsOnTern = testGame.cardsOnTable.push(randomCard());
+    console.log(testGame);
+    testGame.cardsOnRiver = testGame.cardsOnTable.push(randomCard());
+    console.log(testGame);
+
     app.get('/', function(req, res) {
-
         dataToPage.page = "main";
         dataToPage.title = "Home";
         dataToPage.auth = req.isAuthenticated();
@@ -82,14 +119,16 @@ function router(app, express, passport, io) {
         dataToPage.title = "rooms";
         dataToPage.auth = req.isAuthenticated();
         res.render('template', dataToPage);
+
     });
     app.get('/game', isLoggedIn, function(req, res) {
         dataToPage.page = "game";
         dataToPage.title = "game";
         dataToPage.auth = req.isAuthenticated();
-        var userId = req.user._id;
-        console.log(userId);
+
         res.render('template', dataToPage);
+        var userId = req.user._id;
+        console.log('user id: ' + userId);
     });
 
     io.on('connection', function(socket) {

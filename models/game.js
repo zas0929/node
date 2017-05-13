@@ -26,22 +26,22 @@ var gameSchema = mongoose.Schema({
         step: Boolean,
         button: Boolean
     },
-    player3: {
-        id3: String,
-        cards: [],
-        smBl: Boolean,
-        bigBl: Boolean,
-        step: Boolean,
-        button: Boolean
-    },
-    player4: {
-        id4: String,
-        cards: [],
-        smBl: Boolean,
-        bigBl: Boolean,
-        step: Boolean,
-        button: Boolean
-    }
+    // player3: {
+    //     id3: String,
+    //     cards: [],
+    //     smBl: Boolean,
+    //     bigBl: Boolean,
+    //     step: Boolean,
+    //     button: Boolean
+    // },
+    // player4: {
+    //     id4: String,
+    //     cards: [],
+    //     smBl: Boolean,
+    //     bigBl: Boolean,
+    //     step: Boolean,
+    //     button: Boolean
+    // }
 
 })
 
